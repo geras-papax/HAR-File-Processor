@@ -245,6 +245,32 @@ body {
   border-radius: 2px;
 }
 
+.input-block .showLog{
+	position: absolute;
+	right: 10px;
+	top: 77%;
+	transform: translateY(-50%);
+	font-size: 14px;
+	font-weight: 600;
+	user-select: none;
+	cursor: pointer;
+	display: block;
+	color: #a7e245;
+  }
+
+.input-block .showReg{
+	position: absolute;
+	right: 10px;
+	top: 51%;
+	transform: translateY(-50%);
+	font-size: 14px;
+	font-weight: 600;
+	user-select: none;
+	cursor: pointer;
+	display: block;
+	color: #a7e245;
+	}
+
 .form [type='submit'] {
 	opacity: 0;
 	display: block;
