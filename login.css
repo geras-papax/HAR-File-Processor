@@ -261,7 +261,7 @@ body {
 .input-block .showReg{
 	position: absolute;
 	right: 10px;
-	top: 51%;
+	top: 63%;
 	transform: translateY(-50%);
 	font-size: 14px;
 	font-weight: 600;
