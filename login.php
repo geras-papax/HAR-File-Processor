@@ -79,6 +79,10 @@
       // login email and password sent from form  
       $myusername = mysqli_real_escape_string($db,$_POST['login-email']);
       $mypassword = mysqli_real_escape_string($db,$_POST['login-password']);
+      // register fields
+      $_SESSION['email']= mysqli_real_escape_string($db,$_POST['signup-email']);
+      $_SESSION['password']= mysqli_real_escape_string($db,$_POST['signup-password']);
+      $_SESSION['username']= mysqli_real_escape_string($db,$_POST['signup-username']);
       //sql query to database for the login 
       $sql = "SELECT username 
       FROM users 
@@ -92,7 +96,7 @@
       // If result matched $myusername and $mypassword, table row must be 1 row
 
       if($count == 1) {
-         $_SESSION['login_user'] = $myusername;
+         $_SESSION['login_user'] = $row["username"];
          
          header("location: welcome.php");
       }elseif ($count == 0 && $myusername != '') {

@@ -4,12 +4,18 @@
 <html">
    <head>
       <title>Welcome <?php echo $_SESSION['login_user'] ?> </title>
-      <link href="login.css" rel="stylesheet" type="text/css" />
+      <link href="welcome.css" rel="stylesheet" type="text/css" />
    </head>
    
    <body>
-      <h1>Welcome <?php echo $_SESSION['login_user'] ?> </h1> 
-      <h2><a href = "logout.php">Sign Out</a></h2>
+      <section class="forms-section">
+        <h1 class="section-title">Welcome <?php echo $_SESSION['login_user'] ?> </h1> 
+        <a href="login.php">
+            <div class="cv-link">
+                  <img src="Logos/exit1.png">
+            </div>
+         </a>
+      </section>
    </body>
    
 </html>

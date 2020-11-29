@@ -1,0 +1,33 @@
+body {
+	margin: 0;
+	font-family: Roboto, -apple-system, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif;
+	background: #1a1a1a;
+}
+
+.forms-section {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.section-title {
+	font-size: 32px;
+	letter-spacing: 1px;
+	color: rgb(184, 233, 233);
+}
+
+.forms-section a{
+    height: 10px;
+    width: 10px;
+    display: block;
+    margin-left: 95%;
+    margin-right: auto;
+    margin-top: 0%;
+    margin-bottom: auto;
+ }
+
+.forms-section img{
+    height: 50px;
+    width: 50px;
+}

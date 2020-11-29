@@ -76,47 +76,69 @@
    
    if($_SERVER["REQUEST_METHOD"] == "POST") {
       
-    
-      // sign up email username and password sent from form
-      $email = mysqli_real_escape_string($db,$_POST['signup-email']);
-      $password = mysqli_real_escape_string($db,$_POST['signup-password']);
-      $username = mysqli_real_escape_string($db,$_POST['signup-username']);
-
-      //sql query to database for the sign up 
-      $sql_insert = "INSERT INTO `har-processor`.`users`
-      (`email`, 
-       `passwrd`, 
-       `username`
-      )
-      VALUES
-      ('$email', 
-       '$password', 
-       '$username'
-      );";
-
-      mysqli_query($db, $sql_insert);
-      if (mysqli_errno() == 1062) {
-        echo '<script>alert("Email already exists.")</script>';
+      if(isset($_POST['signup-email'])){
+        $email = mysqli_real_escape_string($db,$_POST['signup-email']);
+        $password = mysqli_real_escape_string($db,$_POST['signup-password']);
+        $username = mysqli_real_escape_string($db,$_POST['signup-username']);
+      } else{
+        $email = mysqli_real_escape_string($db,$_SESSION['email']);
+        $password = mysqli_real_escape_string($db,$_SESSION['password']);
+        $username = mysqli_real_escape_string($db,$_SESSION['username']);
       }
+      // sign up email username and password sent from form
+      /*$email = mysqli_real_escape_string($db,$_POST['signup-email']);
+      $password = mysqli_real_escape_string($db,$_POST['signup-password']);
+      $username = mysqli_real_escape_string($db,$_POST['signup-username']);*/
 
-      //sql query to databse for the new user
       $sql_new = "SELECT username 
       FROM users 
-      WHERE email = '$email' and passwrd = '$password'";
+      WHERE email = '$email'";
 
-      $result_insert = mysqli_query($db,$sql);
+      $result_insert = mysqli_query($db,$sql_new);
       $row_in = mysqli_fetch_array($result_insert,MYSQLI_ASSOC);
       
       $count = mysqli_num_rows($result_insert);
-      
-      // If result matched $myusername and $mypassword, table row must be 1 row
 
       if($count == 1) {
-         $_SESSION['login_user'] = $result_insert;
-         
-         header("location: welcome.php");
+
+        echo '<script>alert("Email already exists.")</script>';
+        
       }else {
-        header("location: login.html");
+        
+        //sql query to database for the sign up 
+        $sql_insert = "INSERT INTO `har-processor`.`users`
+        (`email`, 
+        `passwrd`, 
+        `username`
+        )
+        VALUES
+        ('$email', 
+        '$password', 
+        '$username'
+        );";
+
+        mysqli_query($db, $sql_insert);
+
+        //echo '<script>alert("Email already exists.")</script>';
+
+
+        //sql query to databse for the new user
+        $sql_new = "SELECT username 
+        FROM users 
+        WHERE email = '$email'";
+
+        $result_insert = mysqli_query($db,$sql_new);
+        $row_in = mysqli_fetch_array($result_insert,MYSQLI_ASSOC);
+        
+        $count = mysqli_num_rows($result_insert);
+        
+        // If result matched $myusername and $mypassword, table row must be 1 row
+
+        if($count == 1) {
+          $_SESSION['login_user'] = $row_in["username"];
+          
+          header("location: welcome.php");
+        }
       }
    }
 ?>
