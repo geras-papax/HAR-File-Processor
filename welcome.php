@@ -11,7 +11,7 @@
       <section class="forms-section">
         <h1 class="section-title">Welcome <?php echo $_SESSION['login_user'] ?> </h1> 
         <a href="login.php">
-            <div class="cv-link">
+            <div class="link">
                   <img src="Logos/exit1.png">
             </div>
          </a>
