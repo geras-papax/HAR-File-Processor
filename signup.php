@@ -76,6 +76,7 @@
    
    if($_SERVER["REQUEST_METHOD"] == "POST") {
       
+      // sign up email username and password sent from form or from login.php through SESSION variables
       if(isset($_POST['signup-email'])){
         $email = mysqli_real_escape_string($db,$_POST['signup-email']);
         $password = mysqli_real_escape_string($db,$_POST['signup-password']);
@@ -85,11 +86,7 @@
         $password = mysqli_real_escape_string($db,$_SESSION['password']);
         $username = mysqli_real_escape_string($db,$_SESSION['username']);
       }
-      // sign up email username and password sent from form
-      /*$email = mysqli_real_escape_string($db,$_POST['signup-email']);
-      $password = mysqli_real_escape_string($db,$_POST['signup-password']);
-      $username = mysqli_real_escape_string($db,$_POST['signup-username']);*/
-
+      //email existence check
       $sql_new = "SELECT username 
       FROM users 
       WHERE email = '$email'";
