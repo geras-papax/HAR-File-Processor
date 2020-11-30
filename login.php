@@ -84,7 +84,7 @@
       $_SESSION['password']= mysqli_real_escape_string($db,$_POST['signup-password']);
       $_SESSION['username']= mysqli_real_escape_string($db,$_POST['signup-username']);
       //sql query to database for the login 
-      $sql = "SELECT username 
+      $sql = "SELECT username,role   
       FROM users 
       WHERE email = '$myusername' and passwrd = '$mypassword'";
 
@@ -97,8 +97,11 @@
 
       if($count == 1) {
          $_SESSION['login_user'] = $row["username"];
-         
-         header("location: welcome.php");
+         if($row["role"]=="admin"){
+           header("location: admin_session.php");
+         } else {
+           header("location: welcome.php");
+         }
       }elseif ($count == 0 && $myusername != '') {
         echo '<script>alert("Invalid email or password. Please try again")</script>';
       }
