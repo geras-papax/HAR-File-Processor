@@ -1,4 +1,7 @@
 <?php
+
+session_start();
+
 if(isset($_FILES['file']['name'])){
    // file name
    $filename = $_FILES['file']['name'];
@@ -12,7 +15,7 @@ if(isset($_FILES['file']['name'])){
 
    // Valid extensions
    $valid_ext = array("har");
-
+   
    $response = 0;
    if(in_array($file_extension,$valid_ext)){
       // Upload file
@@ -22,6 +25,14 @@ if(isset($_FILES['file']['name'])){
    }
 
    echo $response;
+
+   // Get filtered har data  
+   $data = $_POST["data"];
+   // overwrite file with filtered data from js
+   $f = fopen($location,"wa+"); 
+   fwrite($f, $data);
+   fclose($f);
+
    exit;
 }
 ?>

@@ -80,9 +80,11 @@
       $myusername = mysqli_real_escape_string($db,$_POST['login-email']);
       $mypassword = mysqli_real_escape_string($db,$_POST['login-password']);
       // register fields
-      $_SESSION['email']= mysqli_real_escape_string($db,$_POST['signup-email']);
-      $_SESSION['password']= mysqli_real_escape_string($db,$_POST['signup-password']);
-      $_SESSION['username']= mysqli_real_escape_string($db,$_POST['signup-username']);
+      if(isset($_POST['signup-email']) && isset($_POST['signup-password']) && isset($_POST['signup-username'])){
+        $_SESSION['email']= mysqli_real_escape_string($db,$_POST['signup-email']);
+        $_SESSION['password']= mysqli_real_escape_string($db,$_POST['signup-password']);
+        $_SESSION['username']= mysqli_real_escape_string($db,$_POST['signup-username']);
+      }
       //sql query to database for the login 
       $sql = "SELECT username,role   
       FROM users 
@@ -97,6 +99,7 @@
 
       if($count == 1) {
          $_SESSION['login_user'] = $row["username"];
+         $_SESSION['login_email'] = $myusername;
          if($row["role"]=="admin"){
            header("location: admin_session.php");
          } else {

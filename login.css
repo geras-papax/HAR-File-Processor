@@ -7,7 +7,7 @@
 body {
 	margin: 0;
 	font-family: Roboto, -apple-system, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif;
-	background: #1a1a1a;
+	background: linear-gradient(to top, #0e0e0e,  rgb(36, 36, 36));
 }
 
 .forms-section {
