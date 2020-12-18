@@ -1,8 +1,10 @@
 // Upload file
+var modal = document.getElementById("myModal");
 
 function uploadFile() {
 
     var files = document.getElementById("file").files;
+    
 
     if(files.length > 0 ){
 
@@ -34,6 +36,7 @@ function uploadFile() {
             var response = this.responseText;
             if(response == 1){
                alert("Upload successfully.");
+               modal.style.display = "block";
             }else{
                alert("File not uploaded.");
             }
@@ -47,5 +50,12 @@ function uploadFile() {
     }else{
        alert("Please select a file");
     }
- 
+}
+
+function uptoBase(){
+   modal.style.display = "none";
+}
+
+function download(){
+   modal.style.display = "none";
 }

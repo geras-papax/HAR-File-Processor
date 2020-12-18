@@ -103,7 +103,7 @@
          if($row["role"]=="admin"){
            header("location: admin_session.php");
          } else {
-           header("location: welcome.php");
+           header("location: user/welcome.php");
          }
       }elseif ($count == 0 && $myusername != '') {
         echo '<script>alert("Invalid email or password. Please try again")</script>';

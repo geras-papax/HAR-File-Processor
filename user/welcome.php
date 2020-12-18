@@ -11,9 +11,12 @@
    <body>
       <section class="forms-section">
       <div class="top-border">
+         <div class="emblem">
+            <img src="Logos/emblem.png">
+         </div>
         <label class="section-title">Welcome <?php echo $_SESSION['login_user'] ?> </label> 
         <a href="login.php">
-            <div class="cv-link">
+            <div class="exit">
                <img src="Logos/exit1.png">
             </div>
          </a>
@@ -28,8 +31,19 @@
                onclick="uploadFile();">
             </div>
          </form>
+         <div id="myModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+               <label>Filtered File is Ready</label>
+               <div class="modal-btns">
+                  <input type="button" value="Send to Base" id="server" onclick="uptoBase();">
+                  <a href= "<?php echo $_SESSION['cur_file']?>" download="filtered.har">
+                     <input type="button" value="Download" id="download" onclick="download();">
+                  </a>
+               </div>
+            </div>
+         </div>
       </section>
    </body>
    <script src="welcome.js"></script>
 </html>
-
