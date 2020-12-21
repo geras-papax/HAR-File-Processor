@@ -10,6 +10,7 @@ if(isset($_FILES['file']['name'])){
    $location = 'har_files/'.$filename;
    $_SESSION['cur_file'] = $location;
 
+
    // file extension
    $file_extension = pathinfo($location, PATHINFO_EXTENSION);
    $file_extension = strtolower($file_extension);

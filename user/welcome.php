@@ -37,13 +37,12 @@
                <label>Filtered File is Ready</label>
                <div class="modal-btns">
                   <input type="button" value="Send to Base" id="server" onclick="uptoBase();">
-                  <a href= "<?php echo $_SESSION['cur_file']?>" download="filtered.har">
-                     <input type="button" value="Download" id="download" onclick="download();">
-                  </a>
+                  <input type="button" value="Download" id="download" onclick="download();">
                </div>
             </div>
          </div>
       </section>
    </body>
    <script src="welcome.js"></script>
+   <script src="jquery-3.5.1.js"></script>
 </html>
