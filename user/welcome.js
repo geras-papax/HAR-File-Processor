@@ -53,6 +53,19 @@ function uploadFile() {
 }
 
 function uptoBase(){
+   $.ajax({
+      type: "GET",
+      url: "sendDatabase.php" ,
+      data: {},
+      success : function() { 
+
+          // here is the code that will run on client side after running clear.php on server
+
+          // function below reloads current page
+          //location.reload();
+
+      }
+  });
    modal.style.display = "none";
 }
 
