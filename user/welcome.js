@@ -57,14 +57,6 @@ function uptoBase(){
       type: "GET",
       url: "sendDatabase.php" ,
       data: {},
-      success : function() { 
-
-          // here is the code that will run on client side after running clear.php on server
-
-          // function below reloads current page
-          //location.reload();
-
-      }
   });
    modal.style.display = "none";
 }
@@ -82,3 +74,34 @@ function download(){
    });
    modal.style.display = "none";
 }
+
+const password1 = document.querySelector("#signup-password");
+const password2 = document.querySelector("#signup-password-confirm");
+const btn = document.querySelector("#sign-up-btn");
+
+//check if password and confirm password match
+btn.onclick = function checkPassword() { 
+	if(password1.value != password2.value){
+		alert ("\nPassword did not match: Please try again...")
+		return false;
+	}	
+} 
+
+function showStats() {
+   var xhttp;  
+   
+   xhttp = new XMLHttpRequest();
+   xhttp.onreadystatechange = function() {
+     if (this.readyState == 4 && this.status == 200) {
+       document.getElementById("stats_field").innerHTML = this.responseText;
+     }
+   };
+   xhttp.open("GET", "show_stats.php", true);
+   xhttp.send();
+ }
+
+//Map Section
+let mymap = L.map('mapid');
+let tiles = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {foo: 'bar'});
+tiles.addTo(mymap);
+mymap.setView([38.2462420, 21.7350847], 16);

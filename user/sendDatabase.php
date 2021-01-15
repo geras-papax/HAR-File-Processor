@@ -106,5 +106,5 @@ foreach( $data['log']['entries'] as $row ) {
     
 }
 
- 
+unlink($_SESSION['cur_file']);
 ?>
