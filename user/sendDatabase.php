@@ -106,5 +106,10 @@ foreach( $data['log']['entries'] as $row ) {
     
 }
 
-unlink($_SESSION['cur_file']);
+$files = glob('har_files/*'); 
+foreach($files as $file){ 
+  if(is_file($file)) {
+    unlink($file); 
+  }
+}
 ?>

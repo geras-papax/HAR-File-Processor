@@ -11,6 +11,10 @@
       <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
       integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
       crossorigin=""></script>
+      <script
+      src="https://cdn.jsdelivr.net/npm/heatmapjs@2.0.2/heatmap.js"> </script>
+      <script
+      src="leaflet-heatmap.js"> </script>
    </head>
    
    <body>
@@ -105,7 +109,7 @@
       SET username = '$username', passwrd = '$password'  
       WHERE email = '$email'"; 
 
-      $result_insert = mysqli_query($db,$sql_new);
-      
+      $result_insert = mysqli_query($db,$sql_new);      
    }
+
 ?>
