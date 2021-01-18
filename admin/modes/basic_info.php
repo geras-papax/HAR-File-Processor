@@ -13,7 +13,9 @@
       <section class="forms-section">
          <div class="top-border">
             <div class="emblem">
-               <img src="../Logos/emblem.png">
+               <a href="../admin_session.php">
+                  <img src="../Logos/emblem.png">
+               </a>
             </div>
             <label class="section-title">Welcome Admin <?php echo $_SESSION['login_user'] ?> </label> 
             <a href="../../login.php">
