@@ -1,0 +1,89 @@
+body {
+	margin: 0;
+	font-family: Roboto, -apple-system, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif;
+	background: linear-gradient(to top, #0e0e0e,  rgb(36, 36, 36));
+}
+
+.forms-section {
+	display: block;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: auto;
+}
+
+.top-border {
+	height: auto;
+	width: auto;
+	display: flex;
+	margin-left: auto;
+	margin-right: auto;
+	flex-direction: row;
+	align-items: center;
+	background-color: #161616;
+}
+
+.emblem img{
+	width: 70px;
+	height: 50px;
+}
+
+.top-border .section-title{
+	height: auto;
+	width: auto;
+    margin: auto;
+	font-size: 32px;
+	letter-spacing: 2px;
+	color: rgb(184, 233, 233);
+ }
+
+.top-border .a{
+	width: 70px;
+	height: 70px;
+    margin-left: 95%;
+    margin-top: 0%;
+ }
+
+.top-border .exit img{
+    height: 70px;
+    width: 70px;
+}
+
+.stats{
+	display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+	width: auto;
+	align-items: center;
+	height:auto;
+}
+
+.statsv2{
+	display: grid;
+    grid-template-columns: 1fr 1fr;
+	width: auto;
+	align-items: center;
+	height: auto;
+}
+
+.stats .icons{
+	margin: auto;
+}
+
+.statsv2 .icons{
+	margin: auto;
+}
+  
+table {
+	border : 3px solid #600098;
+	border-radius: 25px;
+	color: rgb(184, 233, 233);
+	background: #161616;
+	margin-bottom: 10px;
+		
+}
+th,td {
+	padding: 6px;
+}
+table td + td { 
+	border-left:2px solid red; 
+}

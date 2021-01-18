@@ -92,7 +92,8 @@ btn.onclick = function checkPassword() {
 	if(password1.value != password2.value){
 		alert ("\nPassword did not match: Please try again...")
 		return false;
-	}	
+   }
+   location.reload();	
 } 
 
 function showStats() {
@@ -125,7 +126,7 @@ oReq.onload = function() {
 
    data = JSON.parse(this.responseText);
    let testData = {
-      max : 100, data: data
+      max : 80, data: data
    };
    let cfg = {"radius": 40,
    "maxOpacity": 0.8,

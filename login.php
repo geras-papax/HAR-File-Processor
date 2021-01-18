@@ -101,7 +101,7 @@
          $_SESSION['login_user'] = $row["username"];
          $_SESSION['login_email'] = $myusername;
          if($row["role"]=="admin"){
-           header("location: admin_session.php");
+           header("location: admin/admin_session.php");
          } else {
            header("location: user/welcome.php");
          }

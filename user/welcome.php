@@ -109,7 +109,8 @@
       SET username = '$username', passwrd = '$password'  
       WHERE email = '$email'"; 
 
-      $result_insert = mysqli_query($db,$sql_new);      
+      mysqli_query($db,$sql_new);
+      $_SESSION['login_user'] = $username;      
    }
 
 ?>
