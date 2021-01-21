@@ -17,7 +17,7 @@
       src="leaflet-heatmap.js"> </script>
    </head>
    
-   <body>
+   <body >
       <section class="forms-section">
          <div class="top-border">
             <div class="emblem">
@@ -26,7 +26,7 @@
             <label class="section-title">Welcome <?php echo $_SESSION['login_user'] ?> </label> 
             <a href="../login.php">
                <div class="exit">
-                  <img src="Logos/exit1.png">
+                  <img src="Logos/exit1.png" onclick="delete_file()">
                </div>
             </a>
          </div>

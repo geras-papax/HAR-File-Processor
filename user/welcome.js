@@ -50,12 +50,19 @@ function uploadFile() {
          };
          xhttp.send(formData);
       }  
-      //thiggering the read file in order to access the file
+      //triggering the read file in order to access the file
       fr.readAsText(files.item(0));
       
     }else{
        alert("Please select a file");
     }
+}
+function delete_file(){
+   $.ajax({
+      url: 'delete.php',
+      data: {},
+      success: function (response) {}
+    });
 }
 
 function uptoBase(){
@@ -71,8 +78,6 @@ function uptoBase(){
 function download(){
    $.get('welcomev2.php', function (data) {
       var link = document.createElement("a");
-      // If you don't know the name or want to use
-      // the webserver default set name = ''
       link.setAttribute('download', 'filtered.har');
       link.href = data;
       document.body.appendChild(link);

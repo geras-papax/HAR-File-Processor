@@ -28,7 +28,7 @@
                </a>
             </div>
             <div class="icons">
-               <a href="../login.php">
+               <a href="modes/response_time.php">
                   <i class="fa fa-clock-o"></i>
                </a>
             </div>

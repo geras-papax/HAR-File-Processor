@@ -43,17 +43,14 @@ foreach( $data['log']['entries'] as $row ) {
     $wait_time = $row['timings']['wait'];
     $sql = "INSERT INTO `har-processor`.`entries` (`serverIP`, `startedDateTime`, `wait_time`, `id_har`, `supplier`, `wday`, `langitude`, `longitude`) VALUES('$serverIP', '$startedDateTime', '$wait_time', '$har_id', '$ip_org', '$wday', '$ip_lat', '$ip_lon');";
     mysqli_query($db, $sql);
+    $entry_id = $db->insert_id;
 
-}
-
-// Insert into requests and reqheaders table
-foreach( $data['log']['entries'] as $row ) {
-
+    // Insert into requests and reqheaders table
     $method = $row['request']['method'];
     $domain = $row['request']['url'];
     $domain = str_replace("https://", '', $domain);
     $domain = substr($domain, 0, strpos($domain, "/"));
-    $sql = "INSERT INTO `har-processor`.`requests` (`id_har`, `method`, `url_domain`) VALUES('$har_id', '$method', '$domain');";
+    $sql = "INSERT INTO `har-processor`.`requests` ( `method`, `url_domain`,`id_har`,`id_entr`) VALUES('$method', '$domain','$har_id','$entry_id' );";
     mysqli_query($db, $sql);
     $req_id = $db->insert_id;
     foreach( $row['request']['headers'] as $heads ) {
@@ -65,8 +62,7 @@ foreach( $data['log']['entries'] as $row ) {
             mysqli_query($db, $sqlH);
 
         }
-    }
-    
+    }          
 }
 
 // Insert into responses and rheaders table
@@ -105,11 +101,11 @@ foreach( $data['log']['entries'] as $row ) {
     
     
 }
-
-$files = glob('har_files/*'); 
-foreach($files as $file){ 
-  if(is_file($file)) {
-    unlink($file); 
-  }
-}
+// Use unlink() function to delete the file  
+if (!unlink($_SESSION['cur_file'])) {  
+    echo ("cannot be delete due to an error");  
+}  
+else {  
+    echo ("has been deleted");  
+}  
 ?>
