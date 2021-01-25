@@ -1,7 +1,7 @@
 google.charts.load('current', {packages: ['corechart', 'bar']});
 //For content type
-$(document).ready(function() {
-    $('#content-type').change(function() {
+function check(){
+    $('#content-type').each(function() {
       var query=$(this).val();
       if(query == "Select a type:"){
 
@@ -17,7 +17,7 @@ $(document).ready(function() {
           }); 
       }
       });
-});
+};
 //For day
 $(document).ready(function() {
     $('#wday').change(function() {
@@ -38,8 +38,8 @@ $(document).ready(function() {
       });
 });
 //For HTTP method
-$(document).ready(function() {
-    $('#method').change(function() {
+function checkM(){
+    $('#method').each(function() {
       var query=$(this).val();
       if(query == "Select a method:"){
 
@@ -55,7 +55,7 @@ $(document).ready(function() {
           }); 
       }
       });
-});
+};
 //For supplier
 $(document).ready(function() {
     $('#supplier').change(function() {

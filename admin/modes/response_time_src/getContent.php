@@ -6,13 +6,17 @@
     $db = mysqli_connect(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE);
 
     if(isset($_GET["query"])){
-        $query = $_GET["query"];
+        $query = strval($_GET["query"]);
+        $queries = explode(",", $query);
+        $query = implode("','",$queries); 
+        $count = count($queries);
         $sql = "SELECT REGEXP_SUBSTR(entries.startedDateTime,'[0-9]*:[0-9]*:[0-9]*'),avg(entries.wait_time) from 
         (((entries inner join har_files on entries.id_har = har_files.id_H) 
         inner join responses on har_files.id_H = responses.id_har)
         inner join rheaders on responses.id_r = rheaders.id_resp) 
-        where rheaders.content_type = '$query' 
+        where rheaders.content_type IN ('$query') 
         group by REGEXP_SUBSTR(entries.startedDateTime,'[0-9]*:[0-9]*:[0-9]*')
+        HAVING COUNT(DISTINCT rheaders.content_type) = '$count'
         order by REGEXP_SUBSTR(entries.startedDateTime,'[0-9]*:[0-9]*:[0-9]*');";
 
         $loc = array();

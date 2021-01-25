@@ -130,9 +130,7 @@ var oReq = new XMLHttpRequest();
 oReq.onload = function() {
 
    data = JSON.parse(this.responseText);
-   let testData = {
-      max : 80, data: data
-   };
+   let testData = data;
    let cfg = {"radius": 40,
    "maxOpacity": 0.8,
    "scaleRadius": false,

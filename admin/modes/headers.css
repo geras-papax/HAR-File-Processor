@@ -49,9 +49,17 @@ body {
     width: 70px;
 }
 
+.charts{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+	width: auto;
+	align-items: center;
+	height:auto;
+}
+
 .stats{
 	display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
 	width: auto;
 	align-items: center;
 	height:auto;
@@ -95,7 +103,7 @@ body {
   	margin: 5px -20px -5px -5px;
 }
 
-.stats input[type='button']{
+.forms-section input[type='button']{
 
 	color: rgb(184, 233, 233);
 	background: #292929;

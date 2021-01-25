@@ -6,12 +6,16 @@
     $db = mysqli_connect(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE);
 
     if(isset($_GET["query"])){
-        $query = $_GET["query"];
+        $query = strval($_GET["query"]);
+        $queries = explode(",", $query);
+        $query = implode("','",$queries); 
+        $count = count($queries);
         $sql = "SELECT REGEXP_SUBSTR(entries.startedDateTime,'[0-9]*:[0-9]*:[0-9]*'),avg(entries.wait_time) from 
         (entries inner join requests on entries.id_e = requests.id_entr)
-         where requests.method = '$query'
-         group by REGEXP_SUBSTR(entries.startedDateTime,'[0-9]*:[0-9]*:[0-9]*')
-         order by REGEXP_SUBSTR(entries.startedDateTime,'[0-9]*:[0-9]*:[0-9]*');";
+            where requests.method IN ('$query')
+            group by REGEXP_SUBSTR(entries.startedDateTime,'[0-9]*:[0-9]*:[0-9]*')
+            HAVING COUNT(DISTINCT requests.method) = '$count'
+            order by REGEXP_SUBSTR(entries.startedDateTime,'[0-9]*:[0-9]*:[0-9]*');";
 
         $loc = array();
 

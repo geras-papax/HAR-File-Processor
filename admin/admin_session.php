@@ -33,7 +33,7 @@
                </a>
             </div>
             <div class="icons">
-               <a href="/login.php">
+               <a href="modes/headers.php">
                   <i class="fa fa-header"></i>
                </a>
             </div>

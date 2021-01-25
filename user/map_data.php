@@ -76,7 +76,11 @@
                 }
             }
         }
-        echo json_encode($loc, JSON_NUMERIC_CHECK);
+        $sql_count= "SELECT count(1)/10 from entries;";
+        $stm = mysqli_query($db,$sql_count);
+        $count = mysqli_fetch_all($stm);
+        $final = array('max'=>$count, 'data'=>$loc);
+        echo json_encode($final, JSON_NUMERIC_CHECK);
     } 
     
 ?>

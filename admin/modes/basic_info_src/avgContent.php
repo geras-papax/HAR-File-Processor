@@ -5,7 +5,7 @@
     define('DB_DATABASE', 'har-processor');
     $db = mysqli_connect(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE);
 
-    $sql = "SELECT avg(REGEXP_SUBSTR(cache_control,'[0-9]+')),content_type from rheaders where cache_control regexp 'max-age=' group by content_type;";
+    $sql = "SELECT avg(age),content_type from rheaders group by content_type;";
 
     $loc = array();
 
