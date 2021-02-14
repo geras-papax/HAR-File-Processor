@@ -38,7 +38,7 @@
                </a>
             </div>
             <div class="icons">
-               <a href="/login.php">
+               <a href="modes/net_map.php">
                   <i class="fa fa-map"></i>
                </a>
             </div>
